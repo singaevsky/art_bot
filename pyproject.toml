@@ -1,0 +1,18 @@
+[tool.pylance]
+analysis = {
+    typeCheckingMode = "basic",
+    reportArgumentType = false,
+    reportGeneralTypeIssues = true
+}
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "art-bot"
+version = "1.0.0"
+requires-python = ">=3.11"
+
+[tool.ruff]
+target-version = "py311"
