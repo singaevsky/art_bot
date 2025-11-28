@@ -20,6 +20,7 @@ class RateLimitingMiddleware(BaseMiddleware):
         update: Update,
         data: Dict[str, Any]
     ) -> Any:
+        # Skip rate limiting for updates without a user or message
         if not update.message or not update.message.from_user:
             return await handler(update, data)
 
