@@ -1,9 +1,9 @@
 from aiogram import Router, F
-from aiogram.types import CallbackQuery, Message, InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import CallbackQuery, Message
 from aiogram.fsm.context import FSMContext
 from ..keyboards import shop_menu_keyboard, gallery_keyboard
 from ..database import get_session
-from ..services import OrderService
+from ..services.orders import create_order
 from ..states import OrderCreate
 
 router = Router()

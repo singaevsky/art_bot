@@ -18,23 +18,17 @@ class LoggingMiddleware(BaseMiddleware):
         start_time = time.time()
 
         # Log update info
-        if update.message and update.message.from_user:
+        if update.message:
             logger.info(
                 "Message from %s: %s",
-                update.message.from_user.id,
+                update.message.from_user.id if update.message.from_user else "Unknown",
                 update.message.text or update.message.caption or "[media]"
             )
-        elif update.callback_query and update.callback_query.from_user:
+        elif update.callback_query:
             logger.info(
                 "Callback from %s: %s",
-                update.callback_query.from_user.id,
+                update.callback_query.from_user.id if update.callback_query.from_user else "Unknown",
                 update.callback_query.data
-            )
-        elif update.inline_query and update.inline_query.from_user:
-            logger.info(
-                "Inline query from %s: %s",
-                update.inline_query.from_user.id,
-                update.inline_query.query
             )
 
         try:
